@@ -1,0 +1,7 @@
+.git
+.dockerignore
+README
+events
+images
+log
+mysql
