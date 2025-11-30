@@ -1,0 +1,58 @@
+name: Docker Image CI
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions:  write
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        VERSION:
+        - 1.36
+        - 1.37
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Login to GHCR
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
+      with:
+        image: ghcr.io/amitie10g/binfmt:latest
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+      with:
+        driver-opts: |
+          image=ghcr.io/amitie10g/buildkit:master
+    - name: Set tags metadata
+      uses: docker/metadata-action@v5
+      id: meta
+      with:
+        images: |
+          ghcr.io/${{ github.repository_owner }}/zoneminder
+        tags: |
+          ${{ matrix.VERSION }}
+          ${{ strategy.job-index == 0 && 'latest' || '' }}
+    - name: Build And Push Docker Image
+      uses: docker/build-push-action@v5
+      id: build
+      with:
+        push: true
+        context: .
+        build-args: |
+          VERSION=${{ matrix.VERSION }}
+        platforms: linux/amd64
+        cache-to: type=inline
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
