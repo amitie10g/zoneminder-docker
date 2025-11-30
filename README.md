@@ -17,7 +17,7 @@ Then, go to http://localhost:8080/zm (or the address of the server).
 
 **Note:** Volumes are already defined at Dockerfile (anonymous volumes), soy you dont want and shouldn't declate them explicitly.
 
-You can use [Podman](https://podman.io/) as well.
+Tested in both [Docker](https://www.docker.com/) and [Podman](https://podman.io/).
 
 ## Licensing
 Everything in this repo but the scriot by Andrew Bauer is released into the Public domain (the Unlicense).
