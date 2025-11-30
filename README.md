@@ -15,7 +15,7 @@ docker run -d -p 8080:80 --name zoneminder ghcr.io/amitie10g/zoneminder:1.37
 
 Then, go to http://localhost:8080/zm (or the address of the server).
 
-**Note:** Volumes are already defined at Dockerfile (anonymous volumes), so you dont want and shouldn't declate them explicitly. You may want to set the Docker volumes directory to be store in a large (ideally compressed) volume.
+**Note:** Volumes are already defined at Dockerfile (anonymous volumes), so you don't want and shouldn't declate them explicitly. You may want to set the Docker volumes directory to be store in a large (ideally compressed) volume.
 
 Tested in both [Docker](https://www.docker.com/) and [Podman](https://podman.io/).
 
