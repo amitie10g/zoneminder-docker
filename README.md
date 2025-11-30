@@ -1,5 +1,5 @@
 # Zoneminder in a Docker container
-This is an attemp to bring [Zoneminder](https://zoneminder.com/) in a Docker container, using the instructions from the [documentation](https://zoneminder.readthedocs.io/en/latest/installationguide/ubuntu.html), and using the [script provided by Andrew Bauer](https://github.com/ZoneMinder/zmdockerfiles/blob/master/utils/entrypoint.sh), in order to get the 1.36 and 1.37 version, in my own way, and available at GitHub Container Registry.
+This is an attemp to bring [Zoneminder](https://zoneminder.com/) in a Docker container, using the instructions from the [documentation](https://zoneminder.readthedocs.io/en/latest/installationguide/ubuntu.html), and using the [script provided by Andrew Bauer](https://github.com/ZoneMinder/zmdockerfiles/blob/master/utils/entrypoint.sh), in order to get the 1.36 and 1.37 version, in my own way, and available at [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-docker-registry).
 
 ## Usage
 
