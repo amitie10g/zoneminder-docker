@@ -20,4 +20,5 @@ Then, go to http://localhost:8080/zm (or the address of the server).
 Tested in both [Docker](https://www.docker.com/) and [Podman](https://podman.io/).
 
 ## Licensing
-Everything in this repo but the scriot by Andrew Bauer is released into the Public domain (the Unlicense).
+* Everything in this repo but the scriot by Andrew Bauer is released into the [Public domain (the Unlicense)](https://github.com/amitie10g/zoneminder-docker/blob/main/LICENSE).
+* Zoneminder is licensed under the [GNU General Public License version 2](https://github.com/ZoneMinder/zoneminder/blob/master/LICENSE).
