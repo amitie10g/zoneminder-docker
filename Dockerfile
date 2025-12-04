@@ -4,7 +4,7 @@ ARG VERSION
 
 # Update base packages
 RUN apt update && \
-    DEBIAN_FRONTEND=noninteractive apt install -y software-properties-common mariadb-server file
+    DEBIAN_FRONTEND=noninteractive apt install -y software-properties-common mariadb-server file vlc-bin
 
 RUN add-apt-repository ppa:iconnor/zoneminder-$(case "$VERSION" in "1.37") echo "master";; *) echo "1.36";; esac) && \
     apt update && \
