@@ -3,17 +3,17 @@ This is an attemp to bring [Zoneminder](https://zoneminder.com/) in a Docker con
 
 ## Usage
 
-;1.36
+**1.36**
 ```
 docker run -d -p 8080:80 --name zoneminder ghcr.io/amitie10g/zoneminder:latest
 ```
 
-;1.37
+**1.37**
 ```
 docker run -d -p 8080:80 --name zoneminder ghcr.io/amitie10g/zoneminder:1.37
 ```
 
-;Using a mocking camera from MP4 file
+**Using a mocking camera from MP4 file**
 ```
 docker run -v $(pwd)/video.mp4:/tmp/video.mp4:ro -d -p 8080:80 --name zoneminder ghcr.io/amitie10g/zoneminder
 docker exec --user nobody -it zoneminder cvlc /tmp/video.mp4 --sout '#rtp{dst=127.0.0.1,port=5004,sdp=rtsp://:8554/stream}' --sout-keep --loop
