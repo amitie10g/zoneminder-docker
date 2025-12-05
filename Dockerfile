@@ -5,14 +5,15 @@ ARG VERSION
 # Update base packages
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y software-properties-common mariadb-server file && \
-    DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends vlc-bin vlc-plugin-base
-
-RUN add-apt-repository ppa:iconnor/zoneminder-$(case "$VERSION" in "1.37") echo "master";; *) echo "1.36";; esac) && \
+    DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends vlc-bin vlc-plugin-base && \
+    add-apt-repository ppa:iconnor/zoneminder-$(case "$VERSION" in "1.37") echo "master";; *) echo "1.36";; esac) && \
     apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y zoneminder && \
     a2enmod rewrite headers cgi && \
     a2enconf zoneminder && \
-    systemctl enable zoneminder
+    systemctl enable zoneminder && \
+    apt-get clean && \
+    rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/*
 
 # Setup Volumes
 VOLUME /var/cache/zoneminder/events /var/cache/zoneminder/images /var/lib/mysql /var/log/zm
