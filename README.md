@@ -23,7 +23,7 @@ Then, go to http://localhost:8080/zm (or the address of the server).
 
 **Note:** Volumes are already defined at Dockerfile (anonymous volumes), so you don't want and shouldn't declate them explicitly. You may want to set the Docker volumes directory to be stored in a large (ideally compressed) volume.
 
-Tested in both [Docker](https://www.docker.com/) and [Podman](https://podman.io/).
+Tested in both [Docker](https://www.docker.com/) (Ubuntu Noble and Debian Trixie) and [Podman](https://podman.io/) (under Centos Stream, Fedora CoreOS and RHEL).
 
 ## Licensing
 * Everything in this repo but the scriot by Andrew Bauer is released into the [Public domain (the Unlicense)](https://github.com/amitie10g/zoneminder-docker/blob/main/LICENSE).
