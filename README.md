@@ -16,7 +16,7 @@ docker run -d -p 8080:80 --name zoneminder ghcr.io/amitie10g/zoneminder:1.37
 **Using a mocking camera from MP4 file**
 ```
 docker run -v $(pwd)/video.mp4:/tmp/video.mp4:ro -d -p 8080:80 --name zoneminder ghcr.io/amitie10g/zoneminder
-docker exec --user nobody -it zoneminder cvlc /tmp/video.mp4 --sout '#rtp{dst=127.0.0.1,port=5004,sdp=rtsp://:8554/stream}' --sout-keep --loop
+docker exec --user nobody -it zoneminder cvlc -i /tmp/video.mp4 --sout '#rtp{dst=127.0.0.1,port=5004,sdp=rtsp://:8554/stream}' --sout-keep --loop
 ```
 
 Then, go to http://localhost:8080/zm (or the address of the server).
